@@ -23,7 +23,7 @@ function App() {
       console.log(tours);
     } catch (error) {
       setLoading(false);
-      console.log(error);
+      // console.log(error);
     }
   };
 
