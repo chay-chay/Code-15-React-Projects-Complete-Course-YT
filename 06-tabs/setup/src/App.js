@@ -36,6 +36,9 @@ function App() {
       </div>
       <div className="jobs-center">
         {/* btn container */}
+        {jobs.map((job, index) => {
+          return <button key={job.id} onClick={ () => setValue(index)}>{job.company} </button>
+        })}
         {/* job info */}
         <article className="job-info">
           <h3>{title}</h3>
@@ -44,7 +47,8 @@ function App() {
           {duties.map((duty, index) => {
             return (
               <div key={index} className="job-desc">
-                <FaAngleDoubleRight className="job-icon">{duty}</FaAngleDoubleRight>
+                <FaAngleDoubleRight className="job-icon"></FaAngleDoubleRight>
+                <p>{duty}</p>
               </div>
             );
           })}
