@@ -36,9 +36,22 @@ function App() {
       </div>
       <div className="jobs-center">
         {/* btn container */}
-        {jobs.map((job, index) => {
-          return <button key={job.id} onClick={ () => setValue(index)}>{job.company} </button>
-        })}
+        <div className="btn-container">
+          {jobs.map((job, index) => {
+            return (
+              <button
+                key={job.id}
+                onClick={() => setValue(index)}
+                // it means if index equal value and we want to add active btn
+                className={`job-btn ${index === value && "active-btn"}`}
+              >
+                {" "}
+                {job.company}{" "}
+              </button>
+            );
+          })}
+        </div>
+
         {/* job info */}
         <article className="job-info">
           <h3>{title}</h3>
