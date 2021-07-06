@@ -6,6 +6,14 @@ function App() {
   const [people, setPeople] = useState(data);
   const [index, setIndex] = useState(0);
 
+  useEffect(() => {
+    const lastIndex = people.length - 1;
+    // set lastIndex to be the last person when user click Prev
+    if (index < 0) {
+      setIndex(lastIndex)
+    }
+  })
+
   return (
     <section className="section">
       <div className="title">
