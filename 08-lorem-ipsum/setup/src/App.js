@@ -6,7 +6,16 @@ function App() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    setText(data)
+    // type of input is string - that's why we have to change to integer
+    let amount = parseInt(count)
+    
+    if (count <= 0) {
+      amount = 1
+    }
+    if (count > 8) {
+      amount = 8
+    }
+    setText(data.slice(0, amount))
   };
   return (
     <section className="section-center">
