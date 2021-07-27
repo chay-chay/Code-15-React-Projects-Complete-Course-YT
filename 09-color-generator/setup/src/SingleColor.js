@@ -6,7 +6,7 @@ const SingleColor = ({ rgb, weight, index }) => {
   const bcg = rgb.join(',')
   console.log(rgb);
   console.log(bcg);
-  return <h4>single color</h4>
+  return <article className={`color`} style={{backgroundColor: `rgb(${bcg})`}}>single color</article>
 }
 
 export default SingleColor
