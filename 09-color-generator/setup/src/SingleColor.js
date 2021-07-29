@@ -8,6 +8,12 @@ const SingleColor = ({ rgb, weight, index, hexColor }) => {
   // we can use the function or use library
   const hex = rgbToHex(...rgb);
   const hexValue = `# ${hexColor}`;
+  useEffect(() => {
+    const timeout = setTimeout(() => {
+      setAlert(false)
+    }, 3000)
+    return () => clearTimeout(timeout)
+  }, [alert])
   // console.log(rgb);
   // console.log(bcg);
   return (
