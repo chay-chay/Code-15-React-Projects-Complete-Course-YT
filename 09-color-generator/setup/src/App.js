@@ -7,7 +7,8 @@ function App() {
   const [color, setColor] = useState("");
   const [error, setError] = useState(false);
   const [list, setList] = useState(new Values('#f15025').all(10));
-
+// all method generate 10 as shade, if we change to 20, it will have less table 
+// it means 100 / ... number that we setup ( control the amount of colors )
   const handleSubmit = (e) => {
     e.preventDefault();
     try {
