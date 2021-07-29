@@ -6,7 +6,9 @@ const SingleColor = ({ rgb, weight, index }) => {
   const bcg = rgb.join(',')
   console.log(rgb);
   console.log(bcg);
-  return <article className={`color`} style={{backgroundColor: `rgb(${bcg})`}}>single color</article>
+  return <article className={`color`} style={{backgroundColor: `rgb(${bcg})`}}>
+  <p className="percenr-value">{weight}%</p>
+  </article>
 }
 
 export default SingleColor
