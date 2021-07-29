@@ -1,19 +1,30 @@
-import React, { useState, useEffect } from 'react'
-import rgbToHex from './utils'
+import React, { useState, useEffect } from "react";
+import rgbToHex from "./utils";
 
 const SingleColor = ({ rgb, weight, index, hexColor }) => {
-  console.log(index)
-  const [alert, setAlert] = useState(false)
-  const bcg = rgb.join(',')
+  console.log(index);
+  const [alert, setAlert] = useState(false);
+  const bcg = rgb.join(",");
   // we can use the function or use library
-  const hex = rgbToHex(...rgb)
-  const hexValue = `# ${hexColor}`
+  const hex = rgbToHex(...rgb);
+  const hexValue = `# ${hexColor}`;
   // console.log(rgb);
   // console.log(bcg);
-  return <article className={`color ${index > 10 && 'color-light'}`} style={{backgroundColor: `rgb(${bcg})`}}>
-  <p className="percent-value">{weight}%</p>
-  <p className="color-value">{hexValue}</p>
-  </article>
-}
+  return (
+    <article
+      className={`color ${index > 10 && "color-light"}`}
+      style={{ backgroundColor: `rgb(${bcg})` }}
+      onClick={() => {
+        setAlert(true)
+        navigator.clipboard.writeText(hexValue)
+      }}
 
-export default SingleColor
+    >
+      <p className="percent-value">{weight}%</p>
+      <p className="color-value">{hexValue}</p>
+      {alert && <p className="alert">copied to clipboard</p>}
+    </article>
+  );
+};
+
+export default SingleColor;
