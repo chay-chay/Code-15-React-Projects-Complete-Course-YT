@@ -1,6 +1,7 @@
 import React from 'react'
 import { FaEdit, FaTrash } from 'react-icons/fa'
-const List = () => {
+const List = ({items}) => {
+  console.log(items)
   return <h2>list component</h2>
 }
 
