@@ -12,8 +12,12 @@ function App() {
     e.preventDefault();
     if (!name) {
       // display alert
+      // instead of usiing  setAlert({show:true, msg:'Please enter value', type: 'danger'})
+      // set to function and pass arg
+      showAlert(true, 'danger', 'Please enter value')
     } else if (name && isEditing) {
       // deal with edit
+
     } else {
       // show alert (if  everything is correct)
       const newItem = { id: new Date().getTime().toString(), title: name };
@@ -21,6 +25,10 @@ function App() {
       setName("");
     }
   };
+  // set show = false by default
+  const showAlert = (show=false, type='', msg='') => {
+    setAlert({show, type, msg})
+  }
   return (
     <section className="section-center">
       <form className="grocery-form" onSubmit={handleSubmit}>
