@@ -7,34 +7,43 @@ function App() {
   const [list, setList] = useState([]);
   const [isEditing, setIsEditing] = useState(false);
   const [editingID, setEditID] = useState(null);
-  const [alert, setAlert] = useState({ show: false, msg: "hello", type: "success" });
+  const [alert, setAlert] = useState({
+    show: false,
+    msg: "hello",
+    type: "success",
+  });
   const handleSubmit = (e) => {
     e.preventDefault();
     if (!name) {
       // display alert
       // instead of usiing  setAlert({show:true, msg:'Please enter value', type: 'danger'})
       // set to function and pass arg
-      showAlert(true, 'danger', 'Please enter value')
+      showAlert(true, "danger", "Please enter value");
     } else if (name && isEditing) {
       // deal with edit
-
     } else {
       // show alert (if  everything is correct)
-      showAlert(true, 'success','item added to the list')
+      showAlert(true, "success", "item added to the list");
       const newItem = { id: new Date().getTime().toString(), title: name };
       setList([...list, newItem]);
       setName("");
     }
   };
   // set show = false by default
-  const showAlert = (show=false, type='', msg='') => {
-    setAlert({show, type, msg})
-  }
+  const showAlert = (show = false, type = "", msg = "") => {
+    setAlert({ show, type, msg });
+  };
 
   const clearList = () => {
-showAlert(true, 'danger', 'empty list')
-setList([])
-  }
+    showAlert(true, "danger", "empty list");
+    setList([]); 
+  };
+
+  const removeItem = (id) => {
+    showAlert(true, 'danger', 'item removed')
+    setList(list.filter((item) => item.id !== id))
+  };
+  
   return (
     <section className="section-center">
       <form className="grocery-form" onSubmit={handleSubmit}>
@@ -51,13 +60,14 @@ setList([])
           <button type="submit" className="submit-btn">
             {isEditing ? "edit" : "submit"}
           </button>
-         
         </div>
       </form>
       {list.length > 0 && (
         <div className="grocery-container">
-        <List items={list} />
-          <button className="clear-btn" onClick={clearList}>clear items</button>
+          <List items={list} removeItem={removeItem} />
+          <button className="clear-btn" onClick={clearList}>
+            clear items
+          </button>
         </div>
       )}
     </section>
