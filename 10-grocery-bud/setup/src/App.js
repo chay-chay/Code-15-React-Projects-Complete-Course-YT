@@ -21,6 +21,12 @@ function App() {
       showAlert(true, "danger", "Please enter value");
     } else if (name && isEditing) {
       // deal with edit
+      setList(list.map((item) => {
+        if (item.id === editID){
+          return {...item, title: name}
+        }
+       return item
+      }))
     } else {
       // show alert (if  everything is correct)
       showAlert(true, "success", "item added to the list");
