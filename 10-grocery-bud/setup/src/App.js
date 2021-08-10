@@ -49,6 +49,7 @@ function App() {
       setName("");
     }
   };
+  
   // set show = false by default
   const showAlert = (show = false, type = "", msg = "") => {
     setAlert({ show, type, msg });
