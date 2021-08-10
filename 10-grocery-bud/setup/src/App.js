@@ -73,7 +73,7 @@ function App() {
 
   useEffect( () => {
     localStorage.setItem('list', JSON.stringify(list))
-  }, [lisst])
+  }, [list])
   return (
     <section className="section-center">
       <form className="grocery-form" onSubmit={handleSubmit}>
