@@ -6,7 +6,7 @@ function App() {
   const [name, setName] = useState("");
   const [list, setList] = useState([]);
   const [isEditing, setIsEditing] = useState(false);
-  const [editingID, setEditID] = useState(null);
+  const [editID, setEditID] = useState(null);
   const [alert, setAlert] = useState({
     show: false,
     msg: "hello",
@@ -27,6 +27,10 @@ function App() {
         }
        return item
       }))
+      setName('');
+      setEditID(null);
+      setIsEditing(false);
+      showAlert(true, 'success', 'value changed' )
     } else {
       // show alert (if  everything is correct)
       showAlert(true, "success", "item added to the list");
