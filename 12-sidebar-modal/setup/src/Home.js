@@ -11,7 +11,7 @@ const Home = () => {
 
   return (
     <main>
-      <button className="sidebar-toggle" omClick={openSidebar}>
+      <button className="sidebar-toggle" onClick={openSidebar}>
         <FaBars />
       </button>
       <button className='btn' onClick={openModal}>Show Button</button>
