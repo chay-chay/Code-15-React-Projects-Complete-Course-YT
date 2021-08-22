@@ -7,14 +7,14 @@ import { useGlobalContext } from "./context";
 const Sidebar = () => {
   const { isSidebarOpen, closeSidebar } = useGlobalContext();
   return (
-    <aside className={`${isSidebarOpen ? 'siderbar show-sidebar': 'sidebar'} `}>
-      <div className="sidebar-header">
-        <img src={logo} className="logo" alt="coding addict" />
-        <button className="close-btn" onClick={closeSidebar}>
+    <aside className={`${isSidebarOpen ? 'sidebar show-sidebar' : 'sidebar'}`}>
+      <div className='sidebar-header'>
+        <img src={logo} className='logo' alt='coding addict' />
+        <button className='close-btn' onClick={closeSidebar}>
           <FaTimes />
         </button>
       </div>
-      <ul className="links">
+      <ul className='links'>
         {links.map((link) => {
           const { id, url, text, icon } = link;
           return (
@@ -27,12 +27,12 @@ const Sidebar = () => {
           );
         })}
       </ul>
-      <ul className="social-icons">
+      <ul className='social-icons'>
         {social.map((link) => {
           const { id, url, icon } = link;
           return (
             <li key={id}>
-              <a href={url}>{icon} </a>
+              <a href={url}>{icon}</a>
             </li>
           );
         })}
