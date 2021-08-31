@@ -1,16 +1,18 @@
 import React, { useState, useContext } from "react";
 import sublinks from "./data";
+const AppContext = React.createContext();
 
-export const AppContext = (React.createContext = ({ children }) => {
+const AppProvider = ({ children }) => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(true);
   const [isSubmenuOpen, setIsSubmenuOpen] = useState(true);
 
-  const closeSidebar = () => {
+  const openSidebar = () => {
     setIsSidebarOpen(true);
   };
-  const openSidebar = () => {
+  const closeSidebar = () => {
     setIsSidebarOpen(false);
   };
+  
   const openSubmenu = () => {
     setIsSubmenuOpen(true);
   };
@@ -32,9 +34,12 @@ export const AppContext = (React.createContext = ({ children }) => {
       {children}
     </AppContext.Provider>
   );
-});
+};
 
 // custom hook
 export const useGlobalContext = () => {
-    return useContext(AppContext)
-}
+    return useContext(AppContext);
+  };
+  
+  export { AppContext, AppProvider };
+  
